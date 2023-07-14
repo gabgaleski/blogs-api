@@ -9,5 +9,6 @@ route.use(express.json());
 
 route.post('/', validateCreateUser, validatePasswordEmail, userController.insertUser);
 route.get('/', tokenValidate, userController.getAllUsers);
+route.get('/:id', tokenValidate, userController.getUserById);
 
 module.exports = route;
