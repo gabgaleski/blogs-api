@@ -1,6 +1,6 @@
 const { getPayload } = require('../auth/authValidate');
 
-const tokenValidateCategory = (req, res, next) => {
+const tokenValidate = (req, res, next) => {
     try {
         const { authorization } = req.headers;
 
@@ -14,4 +14,4 @@ const tokenValidateCategory = (req, res, next) => {
     }
 };
 
-module.exports = tokenValidateCategory;
+module.exports = tokenValidate;

@@ -4,7 +4,7 @@ function extractToken(bearerToken) {
     return bearerToken.split(' ')[1];
   }
 
-const tokenValidate = (req, res, next) => {
+const tokenValidateBearer = (req, res, next) => {
     try {
         const { authorization } = req.headers;
 
@@ -20,4 +20,4 @@ const tokenValidate = (req, res, next) => {
     }
 };
 
-module.exports = tokenValidate;
+module.exports = tokenValidateBearer;
