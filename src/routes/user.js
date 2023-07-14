@@ -1,7 +1,7 @@
 const express = require('express');
 const userController = require('../controller/userController');
 const { validateCreateUser, validatePasswordEmail } = require('../middlewares/validateUser');
-const tokenValidate = require('../middlewares/tokenValidate');
+const tokenValidate = require('../middlewares/tokenValidateBearer');
 
 const route = express();
 
