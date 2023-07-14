@@ -5,8 +5,8 @@
  * @returns
  */
 module.exports = (sequelize, DataTypes) => {
-    const Post = sequelize.define(
-      'Post',
+    const BlogPost = sequelize.define(
+      'BlogPost',
       {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         title: DataTypes.STRING,
@@ -21,17 +21,17 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true,
       },
     );
-    Post.associate = (models) => {
-      Post.belongsTo(models.User, {
+    BlogPost.associate = (models) => {
+      BlogPost.belongsTo(models.User, {
         foreignKey: 'userId',
         as: 'user',
       });
-      Post.hasOne(models.PostCategory, {
+      BlogPost.hasOne(models.PostCategory, {
         through: 'posts_categories',
         as: 'post',
         foreignKey: 'post_id',
         otherKey: 'category_id',
       });
     };
-    return Post;
+    return BlogPost;
   };
