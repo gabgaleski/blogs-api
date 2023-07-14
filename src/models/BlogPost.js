@@ -26,12 +26,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'user',
       });
-      BlogPost.hasOne(models.PostCategory, {
-        through: 'posts_categories',
-        as: 'post',
-        foreignKey: 'post_id',
-        otherKey: 'category_id',
-      });
     };
     return BlogPost;
   };
