@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
             model: 'blog_posts',
             key: 'id',
            },
-            onDelete: 'CASCADE',
           },
         categoryId: { 
           type: DataTypes.INTEGER,
@@ -26,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
             model: 'categories',
             key: 'id',
           },
-          onDelete: 'CASCADE',
         },
       },
       {

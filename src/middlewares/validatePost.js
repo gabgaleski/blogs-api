@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+const { getPostById } = require('../services/postService');
 
 const getAllCategorys = async () => {
     const categorys = await Category.findAll();
@@ -26,7 +27,7 @@ const fieldsValidate = async (req, res, next) => {
     next();
 };
 
-const validateUpdatePost = async (req, res, next) => {
+const validateUpdatePost = (req, res, next) => {
     const { id } = req.params;
     const { title, content } = req.body;
     const { id: idUser } = req.payload.payload;
@@ -40,7 +41,23 @@ const validateUpdatePost = async (req, res, next) => {
     next();
 };
 
+const validateDeletedPost = async (req, res, next) => {
+    const { id } = req.params;
+    const { id: idUser } = req.payload.payload;
+    const post = await getPostById(id);
+    console.log(post);
+    if (!post) {
+        return res.status(404).json({ message: 'Post does not exist' });
+    }
+    if (Number(post.userId) !== Number(idUser)) {
+        return res.status(401).json({ message: 'Unauthorized user' });
+    }
+
+    next();
+};
+
 module.exports = {
     fieldsValidate,
     validateUpdatePost,
+    validateDeletedPost,
 };

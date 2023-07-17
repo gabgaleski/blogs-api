@@ -1,8 +1,8 @@
 const { getPayload } = require('../auth/authValidate');
 
-function extractToken(bearerToken) {
-    return bearerToken.split(' ')[1];
-  }
+const extractToken = (bearerToken) => (
+    bearerToken.includes(' ') ? bearerToken.split(' ')[1] : bearerToken
+);
 
 const tokenValidateBearer = (req, res, next) => {
     try {
