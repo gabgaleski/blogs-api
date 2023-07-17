@@ -26,6 +26,21 @@ const fieldsValidate = async (req, res, next) => {
     next();
 };
 
+const validateUpdatePost = async (req, res, next) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+    const { id: idUser } = req.payload.payload;
+    if (Number(id) !== Number(idUser)) {
+        return res.status(401).json({ message: 'Unauthorized user' });
+    }
+    if (!title || !content) {
+        return res.status(400).json({ message: 'Some required fields are missing' });
+    }
+
+    next();
+};
+
 module.exports = {
     fieldsValidate,
+    validateUpdatePost,
 };
