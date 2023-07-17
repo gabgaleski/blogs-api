@@ -11,18 +11,22 @@ module.exports = (sequelize, DataTypes) => {
         postId: {
            type: DataTypes.INTEGER, 
            primaryKey: true,
+           field: 'post_id',
            references: {
             model: 'blog_posts',
             key: 'id',
            },
+            onDelete: 'CASCADE',
           },
         categoryId: { 
           type: DataTypes.INTEGER,
           primaryKey: true,
+          field: 'category_id',
           references: {
             model: 'categories',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
       },
       {
@@ -36,13 +40,13 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Category.belongsToMany(models.BlogPost, {
         foreignKey: 'categoryId',
-        as: 'blogPost',
         otherKey: 'postId',
-        through: 'posts_categories',
+        through: PostCategory,
+        as: 'blogPosts',
       });
       
       models.BlogPost.belongsToMany(models.Category, {
-        through: 'posts_categories',
+        through: PostCategory,
         foreignKey: 'postId',
         otherKey: 'categoryId',
         as: 'categories',

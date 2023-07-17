@@ -10,5 +10,6 @@ route.use(express.json());
 
 route.post('/', tokenValidateBearer, fieldsValidate, postController.createPost);
 route.get('/', tokenValidateBearer, postController.getAllPosts);
+route.get('/:id', tokenValidateBearer, postController.getPostById);
 
 module.exports = route;
