@@ -10,8 +10,8 @@ module.exports = {
           model: "blog_posts",
           key: "id",
         },
-        onDeleted: "CASCADE",
-        onUpdated: "CASCADE",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       category_id: {
         type: Sequelize.INTEGER,
@@ -20,8 +20,8 @@ module.exports = {
           model: "categories",
           key: "id",
         },
-        onDeleted: "CASCADE",
-        onUpdated: "CASCADE",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
     });
   },
