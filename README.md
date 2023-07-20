@@ -5,7 +5,7 @@
 # :camera_flash: Imagens do Projeto
 
   
-  <img width="800" alt="Imagem pagina de login" src="./img/proj.png">
+  <img width="800" alt="Imagem pagina de login" src="./proj.png">
 
 
 <br>
@@ -31,6 +31,3 @@ O Projeto tem como objetivo as construção de uma API Restful, utilizando arqui
 
 <br>
 
-# :scroll: Nota
-
- <img width="800" alt="Imagem pagina de login" src="./img/nota.png">
