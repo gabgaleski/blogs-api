@@ -24,8 +24,6 @@ O Projeto tem como objetivo as construção de uma API Restful, utilizando arqui
 - Sequelize
 - MySQL
 - Docker
-- Docker Compose
-- EsLint
 - Arquitetura de camadas (MSC)
 - JWT
 
